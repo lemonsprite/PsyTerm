@@ -3,6 +3,9 @@
 #include <cstdlib> // Header definisi akses system
 #pragma warning(disable : 4996)
 // Custom Header
+#include "appData.h"
+#include "appSet.h"
+
 
 using namespace std;
 
