@@ -1,8 +1,10 @@
 #include <stdio.h> // Header definisis printf
+#include <string>
+#include <iostream>
 using namespace std;
 
-
-class AppData
+#pragma region appData
+class appData
 {
 public:
     const int n_soal = 21;
@@ -110,3 +112,4 @@ private:
     }
 
 };
+#pragma endregion

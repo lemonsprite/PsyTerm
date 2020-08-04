@@ -1,11 +1,11 @@
 #include <ctime> // Header definisi time
 #include <iomanip> //Header definisi setprecision
+#include <string>
+#include <iostream>
+
 using namespace std;
 
-/*
-    Setting Aplikasi keseluruhan
-*/
-
+#pragma region appSetting
 class appSetting
 {
 public:
@@ -205,3 +205,4 @@ public:
         }
     }
 };
+#pragma endregion

@@ -1,10 +1,9 @@
 #include <iostream> // Header definisi cout, endl
 #include <conio.h> // Header definisi _getch
 #include <cstdlib> // Header definisi akses system
-
+#pragma warning(disable : 4996)
 // Custom Header
-#include "appData.h"
-#include "appSet.h"
+
 using namespace std;
 
 /*
@@ -13,11 +12,22 @@ using namespace std;
         -Kelompok 8 (12.1B.17)
 */
 
+/*
+    Setting Aplikasi keseluruhan
+*/
+
+using namespace std;
+
+
+
+
+
+
 
 int main()
 {
-    appData d;
     appSetting s;
+    appData d;
 
     // Inisiasi variabel aplikasi
     int jawaban = 0;
@@ -38,7 +48,7 @@ int main()
 
 
     // Dashboard Aplikasi
-    data::psiterm_head();
+    appData::psiterm_head();
 
     system("color f0");
     cout << "* ----------------------------------------------------------------------" << endl;
@@ -68,10 +78,10 @@ int main()
     _getch();
 
     system("cls");
-    data::psiterm_head();
-    cout << setting::separator() << endl << endl;
+    appData::psiterm_head();
+    cout << appSetting::separator() << endl << endl;
     s.alert("Siapa nama anda : ");
-    getline(cin, nama_user);
+    cin >> nama_user;
 
     // Clearing screen dan inputing nama user saat ini
     // Exception kalo nama null
@@ -79,11 +89,11 @@ int main()
     {
         system("cls");
         system("color 4f");
-        data::psiterm_head();
-        cout << setting::separator() << endl << endl;
+        appData::psiterm_head();
+        cout << appSetting::separator() << endl << endl;
         s.info("Harap masukan nama anda terlebih dahulu . . ."); cout << endl << endl;
         s.alert("Siapa nama anda : ");
-        getline(cin, nama_user);
+        cin >> nama_user;
     }
 
     while (s.appstate)
@@ -99,10 +109,10 @@ int main()
         do
         {
             system("cls");
-            data::psiterm_head();
-            cout << setting::separator() << endl;
+            appData::psiterm_head();
+            cout << appSetting::separator() << endl;
             cout << "| Menu Aplikasi" << endl;
-            cout << setting::separator() << endl;
+            cout << appSetting::separator() << endl;
 
             // Dashboard Menu
             if (nama_user == "DEV" || nama_user == "Dev" || nama_user == "dev")
@@ -113,7 +123,7 @@ int main()
                 cout << "| " << endl;
                 cout << "| 0. Keluar Aplikasi" << endl;
                 cout << "| (Developer-Mode) Masukan -1 untuk detail stats" << endl;
-                cout << setting::separator() << endl << endl;
+                cout << appSetting::separator() << endl << endl;
             }
             else {
                 cout << "| 1. Mulai Test" << endl;
@@ -121,7 +131,7 @@ int main()
                 cout << "| 3. Lihat Point Dan Statistik Terakhir" << endl;
                 cout << "| " << endl;
                 cout << "| 0. Keluar Aplikasi" << endl;
-                cout << setting::separator() << endl << endl;
+                cout << appSetting::separator() << endl << endl;
             }
 
             // Muncul notif kalau input salah
@@ -159,8 +169,8 @@ int main()
         {
         case 1:
             system("cls");
-            data::psiterm_head();
-            cout << setting::separator() << endl;
+            appData::psiterm_head();
+            cout << appSetting::separator() << endl;
 
             // Netralisasi variabel dinamis
             // Hapus memori tersimpan
@@ -187,7 +197,7 @@ int main()
             cout << "     untuk itu jawablah pertanyaan dengan baik dan benar." << endl << endl;
 
             cout << "   # Terima kasih sudah membaca aturan main, " << nama_user << "!" << endl;
-            cout << setting::separator() << endl;
+            cout << appSetting::separator() << endl;
             _getch();
 
             cout << endl << nama_user << ", range jawaban yang dapat kamu gunakan adalah:" << endl;
@@ -195,7 +205,7 @@ int main()
             cout << "   2. Pada saat tertentu atau kadang-kadang" << endl;
             cout << "   3. Hmm, lumayan sering" << endl;
             cout << "   4. Wow mejik!! atau benar sekali" << endl;
-            cout << setting::separator() << endl;
+            cout << appSetting::separator() << endl;
 
             cout << endl << "Sudah mengerti!? Silahkan tekan apa saja untuk lanjut ke permainan . . ." << endl;
             _getch();
@@ -206,17 +216,17 @@ int main()
             for (int i = 0; i < d.n_soal; i++)
             {
                 system("cls");
-                data::psiterm_head();
-                cout << setting::separator() << endl;
+                appData::psiterm_head();
+                cout << appSetting::separator() << endl;
                 cout << "| Test Psikis" << endl;
-                cout << setting::separator() << endl;
+                cout << appSetting::separator() << endl;
                 cout << "| " << s.sapaan(s.jam()) << nama_user << "!" << endl;
                 cout << "| Range jawaban yang dapat digunakan di aplikasi ini adalah :" << endl;
                 cout << "|    1. Gak juga" << endl;
                 cout << "|    2. Sedikit pada saat tertentu atau kadang-kadang" << endl;
                 cout << "|    3. Hmm, lumayan" << endl;
                 cout << "|    4. Mejik, Itu sering  atau benar sekali" << endl;
-                cout << setting::separator() << endl << endl;
+                cout << appSetting::separator() << endl << endl;
                 //k Print soal ke terminal
                 // tapi kudu check kategori ...
 
@@ -301,8 +311,8 @@ int main()
 
             // Kudu include algoritma point jeng point fixer
             // Databar bruh . . .
-            data::psiterm_head();
-            cout << setting::separator() << endl << endl;
+            appData::psiterm_head();
+            cout << appSetting::separator() << endl << endl;
             cout << "Tingkat Potensi Emosional Anda : " << endl;
             s.databar(data[0]);
             cout << "Tingkat Potensi Kecemasan Anda : " << endl;
@@ -311,9 +321,9 @@ int main()
             s.databar(data[2]);
 
             // Tips dan Saran aplikasi dari analisis
-            cout << setting::separator() << endl;
+            cout << appSetting::separator() << endl;
             cout << "TIPS DAN SARAN UNTUK ANDA" << endl;
-            cout << setting::separator() << endl;
+            cout << appSetting::separator() << endl;
 
 
             // Uraian tips dan trick
@@ -386,10 +396,10 @@ int main()
         case 2:
             // Rendering System About
             system("cls");
-            data::psiterm_head();
-            cout << setting::separator() << endl;
+            appData::psiterm_head();
+            cout << appSetting::separator() << endl;
             cout << "| Tentang Kami" << endl;
-            cout << setting::separator() << endl;
+            cout << appSetting::separator() << endl;
             cout << "Kami merupakan mahasiswa Semester 1 Universitas BSI Tasikmalaya. Dan" << endl;
             cout << "untuk memenuhi tugas akhir kami, Dosen menyuruh kami membuat proyek aplikasi." << endl << endl;
             _getch();
@@ -425,7 +435,7 @@ int main()
             cout << "Terima kasih " << nama_user << "! Sudah membaca tentang kami hingga akhir. (\\*v*)/" << endl << endl;
             cout << "Developer Aplikasi," << endl << endl;
             cout << "Kelompok " << d.kelompok << endl;
-            cout << setting::separator();
+            cout << appSetting::separator();
 
             cout << endl << endl;
             cout << "Tekan apa saja untuk kembali ke dashboard. . .";
@@ -433,15 +443,15 @@ int main()
             break;
         case 3:
             system("cls");
-            data::psiterm_head();
+            appData::psiterm_head();
             if (s.epoint == 0 && s.kpoint == 0 && s.dpoint == 0 && cur_state == false)
             {
-                cout << setting::separator() << endl;
+                cout << appSetting::separator() << endl;
                 cout << "|    # Anda belum menjalankan Test Psikis silahkan ikuti tes terlebih dahulu." << endl;
                 cout << "|      Untuk menggunakan fitur ini Silahkan ikuti test." << endl;
                 cout << "|" << endl;
                 cout << "|    # Info : Isi Test dengan jujur agar statistik lebih optimal." << endl;
-                cout << setting::separator() << endl << endl;
+                cout << appSetting::separator() << endl << endl;
 
                 cout << "Tekan Apa saja untuk kembali ke dashboard . . .";
 
@@ -454,16 +464,16 @@ int main()
                 // Kudu include algoritma point jeng point fixer
                 // Databar bruh . . .
 
-                cout << setting::separator() << endl << endl;
+                cout << appSetting::separator() << endl << endl;
                 cout << "Tingkat Potensi Emosional Anda : " << endl;
                 s.databar(data[0]);
                 cout << "Tingkat Potensi Kecemasan Anda : " << endl;
                 s.databar(data[1]);
                 cout << "Tingkat Potensi Depresi Anda : " << endl;
                 s.databar(data[2]);
-                cout << setting::separator() << endl;
+                cout << appSetting::separator() << endl;
                 cout << "Tips dan Saran" << endl;
-                cout << setting::separator() << endl;
+                cout << appSetting::separator() << endl;
 
 
                 cout << endl;
@@ -607,8 +617,8 @@ int main()
 
     system("cls");
     system("color e");
-    data::psiterm_head();
-    cout << setting::separator() << endl;
+    appData::psiterm_head();
+    cout << appSetting::separator() << endl;
     cout << "Terima kasih karena telah menggunakan aplikasi Kelompok Kami." << endl;
     cout << endl << endl;
 
