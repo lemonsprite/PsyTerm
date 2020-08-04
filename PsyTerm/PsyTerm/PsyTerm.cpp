@@ -1,31 +1,16 @@
-#include <iostream> // Header definisi cout, endl
-#include <conio.h> // Header definisi _getch
-#include <cstdlib> // Header definisi akses system
 #pragma warning(disable : 4996)
+#pragma warning(disable : 4786)
+
+#include <iostream>
+#include <conio.h>
+#include <cstdlib>
+#include <string> 
+
 // Custom Header
 #include "appData.h"
 #include "appSet.h"
 
-
 using namespace std;
-
-/*
-    Note:
-        Program Debug Info bisa di akses di dashboard dengan menu (-1)
-        -Kelompok 8 (12.1B.17)
-*/
-
-/*
-    Setting Aplikasi keseluruhan
-*/
-
-using namespace std;
-
-
-
-
-
-
 
 int main()
 {
@@ -84,7 +69,7 @@ int main()
     appData::psiterm_head();
     cout << appSetting::separator() << endl << endl;
     s.alert("Siapa nama anda : ");
-    cin >> nama_user;
+    getline(cin, nama_user);
 
     // Clearing screen dan inputing nama user saat ini
     // Exception kalo nama null
@@ -96,7 +81,7 @@ int main()
         cout << appSetting::separator() << endl << endl;
         s.info("Harap masukan nama anda terlebih dahulu . . ."); cout << endl << endl;
         s.alert("Siapa nama anda : ");
-        cin >> nama_user;
+        getline(cin, nama_user);
     }
 
     while (s.appstate)
