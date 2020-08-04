@@ -9,7 +9,7 @@ class appData
 public:
     const int n_soal = 21;
     const int n_anggota = 5;
-    const int kelompok = 8;
+    const string author = "limepeople";
 
     string mulaiprojek = "2 Desember 2019";
     string akhirproyek = "15 Desember 2019";
@@ -26,7 +26,6 @@ public:
     {
         printf("     #%i [-%i-] ", i + 1, index_member_NIM(i)); cout << index_nama(i) << endl;
     }
-
 
     static void psiterm_head()
     {

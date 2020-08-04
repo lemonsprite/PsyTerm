@@ -22,12 +22,8 @@ int main()
     int state_jawaban = 0;
 
     bool cur_state = false;
-    // float epoint = 0;
-    // float kpoint = 0;
-    // float dpoint = 0;
 
-    // Memori alokator biar supaya gak nge-bug
-    // referensi SO (rada baca saetik)
+    // Memori alokator dan deklarasi variabel
     float* persentase = new float[3];
     float* data = new float[5];
     float pstats = 0;
@@ -42,25 +38,10 @@ int main()
     cout << "* ----------------------------------------------------------------------" << endl;
     cout << "* Selamat Datang di Aplikasi PsyTerm" << endl;
     cout << "* ----------------------------------------------------------------------" << endl;
-    cout << "* -   Dikembangkan oleh Kelompok " << d.kelompok << " Kelas " << d.kelas << endl;
-    cout << "* -   Projek dimulai tanggal " << d.mulaiprojek << endl;
-    cout << "* -   Projek ini dibuat untuk memenuhi Tugas Akhir semester 1" << endl;
-    cout << "* -   Universitas BSI Kampus Tasikmalaya" << endl;
+    cout << "* -   Dikembangkan oleh " << d.author << endl;
+    cout << "* -   dan dikembangkan berdasar konsep permainan survey." << endl << endl;
+    cout << "* -   https://github.com/limepeople" << endl;
     cout << "* ----------------------------------------------------------------------" << endl;
-    _getch();
-
-    // Loopimg anggota kelompok
-    // couting NIM sama Nama member
-    cout << "    Anggota Projek aplikasi ini adalah :" << endl;
-    for (int a = 0; a < d.n_anggota; a++)
-        d.data_member(a);
-
-    cout << "* ----------------------------------------------------------------------" << endl;
-
-    // // Point Debugging test
-    // cout << "E-Point : " << epoint << endl;
-    // cout << "K-Point : " << kpoint << endl;
-    // cout << "D-Point : " << dpoint <<
     cout << endl;
     cout << "Tekan apa saja untuk melanjutkan . . .";
     _getch();
@@ -91,9 +72,8 @@ int main()
         // Main app fitur start
 
         // app validator input menu...
-        // input exception, hese bikin logika nukieu teh jadi hargai
-        // pake loop!? nu penting gak ada bug OK....
-        // Kumaha developer we, user mah pake aja
+        // input exception
+        #pragma region App Dashboard
         do
         {
             system("cls");
@@ -123,14 +103,12 @@ int main()
             }
 
             // Muncul notif kalau input salah
-            // Fuck You... nyieun exception teh hese...
             if (s.menu > s.n_menu || s.cin_state == true)
             {
                 system("color 4f");
                 s.alert("Menu tidak valid! input kembali katalog dengan valid."); cout << endl << endl;
             }
-            // Sapa user dengan hangat :v (LOL)
-            // Bebas kumaha developer we
+            // Sapa user dengan hangat
             cout << "[System Info] " << s.sapaan(s.jam()) << nama_user << "!" << endl;
 
             // Input Data dan checking data menu
@@ -146,16 +124,16 @@ int main()
             if (s.menu > s.n_menu)
                 s.cin_state = true;
         } while (s.cin_state);
+        #pragma endregion
 
         // Script Lolos validasi
         // App routing
-        // routing merungsing parah....
-        // Ulah hilap ubah warna ti beureum
 
         system("color f0");
         switch (s.menu)
         {
         case 1:
+            #pragma region Menu: MulaiApp
             system("cls");
             appData::psiterm_head();
             cout << appSetting::separator() << endl;
@@ -219,7 +197,7 @@ int main()
                 // tapi kudu check kategori ...
 
                 // Deklarasi kategori trus stor ke kategori state
-                // rada tricky tapi sugan we moal ngebug
+
                 if (i < 7)
                 {
                     s.kategori_state[i] = s.kategori_id(1);
@@ -268,13 +246,12 @@ int main()
 
 
                 // Logika tambahan untuk hitung point
-                // Yang penting aplikasi jalan . . .
                 jawaban = jawaban - 1;
 
 
                 // Point jawaban masuk ke kategori point
                 // check kategori trus store ke variabel state kategori
-                // Filterting state
+                // Filtering
                 if (s.kategori_state[i] == 'E')
                     s.epoint = s.epoint + jawaban;
                 else if (s.kategori_state[i] == 'K')
@@ -315,8 +292,7 @@ int main()
 
 
             // Uraian tips dan trick
-            // Tuhan tolong.....
-            // Di kopi ke bagean statistik
+            // Di copy ke bagean statistik
             pstats = ((s.datac(data[0]) * 0.5) + (s.datac(data[1]) * 0.2) + (s.datac(data[2]) * 0.3)) - 9;
 
             cout << endl;
@@ -381,55 +357,32 @@ int main()
 
             _getch();
             break;
+            #pragma endregion
+
         case 2:
+            #pragma region Menu: Tentang Kami
             // Rendering System About
             system("cls");
             appData::psiterm_head();
             cout << appSetting::separator() << endl;
             cout << "| Tentang Kami" << endl;
             cout << appSetting::separator() << endl;
-            cout << "Kami merupakan mahasiswa Semester 1 Universitas BSI Tasikmalaya. Dan" << endl;
-            cout << "untuk memenuhi tugas akhir kami, Dosen menyuruh kami membuat proyek aplikasi." << endl << endl;
-            _getch();
-
-            cout << "Kami merupakan Kelompok " << d.kelompok << " dari Kelas " << d.kelas << endl;
-            cout << "Dan terdiri dari " << d.n_anggota << " Anggota, yaitu :" << endl;
-
-            // Loopig anggota Proyek
-            for (int a = 0; a < d.n_anggota; a++)
-            {
-                d.data_member(a);
-            }
-            _getch();
-
-            cout << endl;
-            cout << "Pada awalnya kami bingung dalam menentukan sebuah konsep aplikasi, tapi" << endl;
-            cout << "suatu hari anggota kami, yaitu Teh Ilmi dan Teh Ipit menyarankan sebuah tema yaitu Kesehatan.";
-            _getch();
+            cout << "Ini aplikasi permainan sederhana yang dibuat untuk survey." << endl;
 
             cout << endl << endl;
-            cout << "Lalu, dengan tambahan ide yang terinspirasi dari sebuah web survey, setelah itu kami" << endl;
-            cout << "Berinisiatif untuk mengembangkan aplikasi tes kesehatan dengan sistem survey.";
-            _getch();
-
-            cout << endl << endl;
-            cout << "Proyek aplikasi ini dimulai dari tanggal " << d.mulaiprojek << " hingga " << d.akhirproyek << endl;
-            cout << "Banyak sekali kesulitan dalam membuat script dan program aplikasi ini, namun kami sangat" << endl;
-            cout << "puas dengan aplikasi yang telah kami buat.";
-
-            _getch();
-
-            cout << endl << endl;
-            cout << "Terima kasih " << nama_user << "! Sudah membaca tentang kami hingga akhir. (\\*v*)/" << endl << endl;
-            cout << "Developer Aplikasi," << endl << endl;
-            cout << "Kelompok " << d.kelompok << endl;
+            cout << "Terima kasih " << nama_user << "! Sudah mencoba aplikasi saya. (\\*v*)/" << endl << endl;
+            cout << "Developer Aplikasi," << endl;
+            cout << d.author<< endl;
             cout << appSetting::separator();
 
             cout << endl << endl;
             cout << "Tekan apa saja untuk kembali ke dashboard. . .";
             _getch();
             break;
+            #pragma endregion
+
         case 3:
+            #pragma region Menu: Poin
             system("cls");
             appData::psiterm_head();
             if (s.epoint == 0 && s.kpoint == 0 && s.dpoint == 0 && cur_state == false)
@@ -527,13 +480,17 @@ int main()
                 _getch();
             }
             break;
+            #pragma endregion
+
         case 0:
+            // Close aplikasi
             s.appstate = false;
             break;
+
         case -1:
-            // Debugging area ???
+            #pragma region Menu: Debug
+            // Debugging area
             // Testing + Variabel checking
-            // Tolooooooooong!!!
             cout << endl;
             cout << "--------------------------------------------------------------" << endl;
             cout << "Debuging Area & Point Stats" << endl;
@@ -600,6 +557,8 @@ int main()
             cout << "Tekan apa saja untuk melanjutkan . . ." << endl;
             _getch();
             break;
+            #pragma endregion
+
         }
     }
 
@@ -607,7 +566,7 @@ int main()
     system("color e");
     appData::psiterm_head();
     cout << appSetting::separator() << endl;
-    cout << "Terima kasih karena telah menggunakan aplikasi Kelompok Kami." << endl;
+    cout << "Terima kasih karena telah menggunakan aplikasi ane." << endl;
     cout << endl << endl;
 
 }
