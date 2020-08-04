@@ -8,12 +8,8 @@ class appData
 {
 public:
     const int n_soal = 21;
-    const int n_anggota = 5;
     const string author = "limepeople";
 
-    string mulaiprojek = "2 Desember 2019";
-    string akhirproyek = "15 Desember 2019";
-    string kelas = "12.1B.17";
     string temp;
 
     string data_soal(int a)
