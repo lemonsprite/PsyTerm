@@ -40,7 +40,7 @@ int main()
 
     system("color f0");
     cout << "* ----------------------------------------------------------------------" << endl;
-    cout << "* Selamat Datang di Aplikasi PsiTerm" << endl;
+    cout << "* Selamat Datang di Aplikasi PsyTerm" << endl;
     cout << "* ----------------------------------------------------------------------" << endl;
     cout << "* -   Dikembangkan oleh Kelompok " << d.kelompok << " Kelas " << d.kelas << endl;
     cout << "* -   Projek dimulai tanggal " << d.mulaiprojek << endl;
