@@ -3,7 +3,4 @@ Ini adalah permainan konsol terminal sederhana, yang bertema psikologis. dan apl
 
 Aplikasi ini terinspirasi dari website survey yang dijadikan sebuah permainan di media sosial, dan diterapkan kedalam permainan konsol terminal sederhana menggunaka bahasa pemograman c++.
 
-### Developed by: limepeople
-##### Twitter : https://twitter.com/lime_people
-##### Github  : https://github.com/lemonsprite
-##### Website : -
+### Developed by: lemonsprite
