@@ -8,7 +8,7 @@ class appData
 {
 public:
     const int n_soal = 21;
-    const string author = "limepeople";
+    const string author = "lemonsprite";
 
     string temp;
 

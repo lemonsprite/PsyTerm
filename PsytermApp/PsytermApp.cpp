@@ -40,7 +40,7 @@ int main()
     cout << "* ----------------------------------------------------------------------" << endl;
     cout << "* -   Dikembangkan oleh " << d.author << endl;
     cout << "* -   dan dikembangkan berdasar konsep permainan survey." << endl << endl;
-    cout << "* -   https://github.com/limepeople" << endl;
+    cout << "* -   https://github.com/lemonsprite" << endl;
     cout << "* ----------------------------------------------------------------------" << endl;
     cout << endl;
     cout << "Tekan apa saja untuk melanjutkan . . .";
